@@ -1,0 +1,9 @@
+node_modules/
+dist/
+release/
+Receipt pdfs/
+.git/
+.DS_Store
+*.db
+*.sqlite
+*.sqlite3
