@@ -1,0 +1,911 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+
+  background: #f4f6f8;
+  color: #1f2937;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background: #171717;
+  color: white;
+  padding: 25px 15px;
+}
+
+.brand {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.brand-title {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.brand-subtitle {
+  font-size: 13px;
+  opacity: .7;
+  margin-top: 4px;
+}
+
+.sidebar button {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #ddd;
+  padding: 14px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sidebar button:hover,
+.sidebar button.active {
+  background: #343434;
+  color: white;
+}
+
+.main {
+  flex: 1;
+  padding: 35px;
+  overflow: auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.page-header h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.page-header p {
+  color: #6b7280;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow:
+    0 2px 10px rgba(0,0,0,.05);
+}
+
+.stat-card span {
+  color: #6b7280;
+}
+
+.stat-card strong {
+  display: block;
+  font-size: 28px;
+  margin-top: 10px;
+}
+
+.receipt-workspace {
+  display: grid;
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 25px;
+}
+
+.form-panel,
+.preview-panel {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 18px;
+}
+
+.form-grid .full {
+  grid-column: 1 / -1;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  padding: 11px;
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #333;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.primary-button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 14px;
+  background: #171717;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.receipt-preview {
+  background: #eee;
+  padding: 20px;
+}
+
+.receipt-border {
+  background: white;
+  border: 2px solid #222;
+  padding: 18px;
+}
+
+.receipt-header {
+  display: flex;
+  gap: 20px;
+  border-bottom: 2px solid #222;
+  padding-bottom: 15px;
+}
+
+.foundation-logo {
+  width: 110px;
+  height: 90px;
+  object-fit: contain;
+}
+
+.foundation-details {
+  flex: 1;
+  text-align: center;
+}
+
+.foundation-details h1 {
+  margin: 0 0 8px;
+  font-family: Georgia, serif;
+  font-size: 20px;
+}
+
+.foundation-details p {
+  margin: 3px;
+  font-size: 11px;
+}
+
+.receipt-title {
+  background: #222;
+  color: white;
+  width: fit-content;
+  margin: -1px auto 15px;
+  padding: 5px 25px;
+  font-weight: bold;
+}
+
+.receipt-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.receipt-meta strong {
+  color: #a22;
+  font-size: 17px;
+}
+
+.receipt-body {
+  font-size: 12px;
+}
+
+.receipt-line {
+  border-bottom: 1px solid #222;
+  min-height: 25px;
+  padding: 5px;
+}
+
+.receipt-body p {
+  border-bottom: 1px solid #222;
+  min-height: 25px;
+  margin: 0;
+  padding: 5px;
+}
+
+.receipt-body .value {
+  margin-left: 10px;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 15px;
+}
+
+.signature-row {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+
+.receipt-border footer {
+  border-top: 2px solid #222;
+  text-align: center;
+  font-size: 11px;
+  font-weight: bold;
+  margin-top: 15px;
+  padding-top: 8px;
+}
+
+.table-container {
+  background: white;
+  border-radius: 12px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background: #f8f8f8;
+}
+
+.search {
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+/* =========================================================
+   MOBILE RESPONSIVE DESIGN
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   MOBILE HEADER
+   --------------------------------------------------------- */
+
+.mobile-header {
+  display: none;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE OVERLAY
+   --------------------------------------------------------- */
+
+.mobile-overlay {
+  display: none;
+}
+
+
+/* ---------------------------------------------------------
+   TABLET
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  .sidebar {
+    width: 220px;
+  }
+
+  .main {
+    margin-left: 220px;
+    padding: 24px;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+
+  /* =======================================================
+     APP
+     ======================================================= */
+
+  .app {
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+
+  /* =======================================================
+     MOBILE HEADER
+     ======================================================= */
+
+  .mobile-header {
+
+    display: flex;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 64px;
+
+    align-items: center;
+
+    padding: 0 16px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    z-index: 1000;
+
+  }
+
+
+  .menu-button {
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 26px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+  }
+
+
+  .mobile-brand {
+
+    margin-left: 12px;
+
+    line-height: 1.1;
+
+  }
+
+
+  .mobile-brand-title {
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+
+  }
+
+
+  .mobile-brand-subtitle {
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    opacity: 0.65;
+
+    margin-top: 3px;
+
+  }
+
+
+  /* =======================================================
+     SIDEBAR
+     ======================================================= */
+
+  .sidebar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    width: 270px;
+
+    margin: 0;
+
+    transform: translateX(-100%);
+
+    transition:
+      transform 0.25s ease;
+
+    z-index: 1100;
+
+    overflow-y: auto;
+
+  }
+
+
+  .sidebar.mobile-open {
+
+    transform: translateX(0);
+
+  }
+
+
+  /* =======================================================
+     SIDEBAR BRAND
+     ======================================================= */
+
+  .sidebar .brand {
+
+    display: block;
+
+    padding-top: 24px;
+
+  }
+
+
+  /* =======================================================
+     OVERLAY
+     ======================================================= */
+
+  .mobile-overlay {
+
+    display: block;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    z-index: 1050;
+
+  }
+
+
+  /* =======================================================
+     MAIN
+     ======================================================= */
+
+  .main {
+
+    margin-left: 0 !important;
+
+    width: 100%;
+
+    padding: 84px 14px 24px;
+
+    box-sizing: border-box;
+
+  }
+
+
+  /* =======================================================
+     PAGE
+     ======================================================= */
+
+  .page {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    box-sizing: border-box;
+
+  }
+
+
+  /* =======================================================
+     PAGE HEADER
+     ======================================================= */
+
+  .page-header {
+
+    display: block;
+
+    margin-bottom: 20px;
+
+  }
+
+
+  .page-header h2 {
+
+    font-size: 24px;
+
+    margin-bottom: 5px;
+
+  }
+
+
+  .page-header p {
+
+    font-size: 14px;
+
+  }
+
+
+  /* =======================================================
+     RECEIPT WORKSPACE
+     ======================================================= */
+
+  .receipt-workspace {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    width: 100%;
+
+  }
+
+
+  .form-panel,
+  .preview-panel {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    box-sizing: border-box;
+
+  }
+
+
+  /* =======================================================
+     FORM GRID
+     ======================================================= */
+
+  .form-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+
+  }
+
+
+  .form-grid .full {
+
+    grid-column: auto;
+
+  }
+
+
+  /* =======================================================
+     INPUTS
+     ======================================================= */
+
+  .receipt-form input,
+  .receipt-form select,
+  .receipt-form textarea {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    font-size: 16px;
+
+  }
+
+
+  .receipt-form textarea {
+
+    min-height: 100px;
+
+  }
+
+
+  /* =======================================================
+     BUTTON
+     ======================================================= */
+
+  .primary-button {
+
+    width: 100%;
+
+    min-height: 50px;
+
+    font-size: 16px;
+
+    margin-top: 8px;
+
+  }
+
+
+  /* =======================================================
+     RECEIPT PREVIEW
+     ======================================================= */
+
+  .preview-panel {
+
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+
+  }
+
+
+  /* =======================================================
+     DASHBOARD CARDS
+     ======================================================= */
+
+  .dashboard-grid {
+
+    grid-template-columns: 1fr !important;
+
+  }
+
+
+  /* =======================================================
+     TABLE
+     ======================================================= */
+
+  .table-container {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+
+  }
+
+
+  table {
+
+    min-width: 800px;
+
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   SMALL PHONES
+   --------------------------------------------------------- */
+
+@media (max-width: 420px) {
+
+  .main {
+
+    padding-left: 10px;
+
+    padding-right: 10px;
+
+  }
+
+
+  .mobile-header {
+
+    padding-left: 10px;
+
+    padding-right: 10px;
+
+  }
+
+
+  .page-header h2 {
+
+    font-size: 22px;
+
+  }
+
+
+  .receipt-form {
+
+    padding: 14px;
+
+  }
+
+}
+/* ============================================================
+   LOGIN
+   ============================================================ */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #f5f7fb;
+}
+
+
+.login-card {
+  width: 100%;
+  max-width: 430px;
+  padding: 40px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.10);
+}
+
+
+.login-logo {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+
+.login-title {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+
+.login-subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  margin-top: 4px;
+}
+
+
+.login-card h2 {
+  text-align: center;
+  margin: 10px 0 8px;
+}
+
+
+.login-description {
+  text-align: center;
+  color: #666;
+  margin-bottom: 28px;
+}
+
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.login-form label {
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+
+.login-form input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid #d8dce5;
+  border-radius: 9px;
+  font-size: 15px;
+  outline: none;
+}
+
+
+.login-form input:focus {
+  border-color: #555;
+}
+
+
+.login-button {
+  width: 100%;
+  margin-top: 18px;
+  padding: 13px;
+}
+
+
+.login-error {
+  padding: 10px 12px;
+  margin-top: 8px;
+  border-radius: 8px;
+  background: #fff0f0;
+  color: #c62828;
+  font-size: 14px;
+}
+
+
+/* ============================================================
+   LOGOUT
+   ============================================================ */
+
+.sidebar-bottom {
+  margin-top: auto;
+}
+
+
+.logout-button {
+  width: 100%;
+  background: transparent;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+.logout-button:hover {
+  background: #f5f5f5;
+}
+
+
+/* ============================================================
+   MOBILE LOGIN
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+  .login-page {
+    padding: 16px;
+  }
+
+
+  .login-card {
+    padding: 28px 22px;
+    border-radius: 14px;
+  }
+
+
+  .login-title {
+    font-size: 20px;
+  }
+
+}

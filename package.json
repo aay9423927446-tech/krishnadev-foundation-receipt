@@ -1,0 +1,48 @@
+{
+  "name": "shri-krishnadev-receipt",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Offline receipt management system for Shri Krishnadev Foundation",
+  "author": "Shri Krishnadev Foundation",
+  "type": "module",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "concurrently -k \"npm run dev:renderer\" \"npm run dev:electron\"",
+    "dev:renderer": "vite",
+    "dev:electron": "wait-on http://localhost:5173 && electron .",
+    "build": "vite build",
+    "start": "electron .",
+    "dist": "npm run build && electron-builder"
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "electron-is-dev": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "latest",
+    "concurrently": "latest",
+    "cross-env": "latest",
+    "electron": "latest",
+    "electron-builder": "latest",
+    "vite": "latest",
+    "wait-on": "latest"
+  },
+  "build": {
+    "appId": "org.shrikrishnadev.foundation.receipts",
+    "productName": "Shri Krishnadev Receipt",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+  "dist/**",
+  "electron/**",
+  "src/assets/**",
+  "package.json"
+],
+    "win": {
+      "target": "nsis"
+    }
+  }
+}
